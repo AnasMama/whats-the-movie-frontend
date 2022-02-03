@@ -13,9 +13,6 @@ function NotFound() {
         Mais vous pouvez :
       </p>
       <div>
-        <Link to="/dashboard">
-          <button type="button">Accéder à vos Business Plan</button>
-        </Link>
         <Link to="/">
           <button type="button">Revenir à la page d'accueil</button>
         </Link>
