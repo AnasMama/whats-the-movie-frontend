@@ -15,7 +15,9 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     padding-bottom: 5rem;
     background-color: #1B1E22;
+    background-image: url("/background-movie.png");
     background-size: cover;
+    background-attachment: fixed;
     font-family: 'Varela Round', sans-serif;
     font-size: 1.3em;
     color: #FFFCF9;

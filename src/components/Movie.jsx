@@ -12,7 +12,6 @@ const Movie = () => {
     const { id } = params;
     const idAnswer = id.split("-")[1]
     const idMovie = id.split("-")[0]
-    console.log(idAnswer)
 
     const { register, handleSubmit } = useForm()
 
@@ -40,9 +39,17 @@ const Movie = () => {
             console.log("trop cool ca marche")
             axios
                 .put(`http://localhost:5000/api/answers/${idAnswer}`, { id_movie: idMovie, is_answer: true })
-                .then()
+                .then(Swal.fire(
+                    'Bien joué !',
+                    'Tu as trouvé le nom du film !',
+                    'success'
+                ))
         } else {
-            console.log("try again !")
+            Swal.fire(
+                'Dommage...',
+                "Tu n'as trouvé le nom du film ! Essaye encore !",
+                'error'
+            )
         }
     }
 
@@ -69,7 +76,8 @@ const Movie = () => {
 const GuessImg = styled.img`
   display: block;
   width: 30%;
-  filter: ${(props) => (props.blur ? props.blur : "blur(1rem)")};
+  min-width: 500px;
+  filter: ${(props) => (props.blur ? props.blur : "blur(0.8rem)")};
   margin: 2em auto;
 
   @media (max-width: 768px) {
@@ -82,7 +90,7 @@ const Field = styled.input`
     border-radius: 10px 0px 0px 10px;
     box-shadow: 2px 4px 4px hsl(0deg 0% 0% / 0.38);
     border: 1px solid black;
-    padding: 20px;
+    padding: 10px;
     margin-top: 1em;
     margin-bottom: 1.8em;
     &:focus {
